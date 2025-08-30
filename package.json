@@ -1,7 +1,7 @@
 {
-  "name": "webpack-template",
+  "name": "weather-app",
   "version": "1.0.0",
-  "description": "feel free to use",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fromscode/webpack-template.git"
+    "url": "git+https://github.com/fromscode/weather-app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fromscode/webpack-template/issues"
+    "url": "https://github.com/fromscode/weather-app/issues"
   },
-  "homepage": "https://github.com/fromscode/webpack-template#readme",
+  "homepage": "https://github.com/fromscode/weather-app#readme",
   "devDependencies": {
     "@eslint/js": "^9.34.0",
     "css-loader": "^7.1.2",

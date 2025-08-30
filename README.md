@@ -1,3 +1,3 @@
-# webpack-template
+# weather-app
 
-feel free to use
+sun and steeeeeeeeeeeel
