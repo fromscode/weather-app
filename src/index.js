@@ -8,13 +8,6 @@ import processForm from "./processForm";
 
 console.log("test");
 
-async function displayWeather(city = "Rome") {
-  const obj = await processJson(getWeatherJson(city));
-  console.log(obj);
-}
-
-// processForm(displayWeather);
-
 processForm(renderWeather);
 
 async function renderWeather(city) {
