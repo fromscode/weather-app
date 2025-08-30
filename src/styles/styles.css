@@ -4,4 +4,6 @@ body {
   width: 100vw;
   align-items: center;
   justify-content: center;
+  color: #fff;
+  background: var(--gradient);
 }
