@@ -6,4 +6,9 @@
 .hourly .hour-div {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+.hourly .temp {
+  text-align: center;
 }

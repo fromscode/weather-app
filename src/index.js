@@ -107,7 +107,9 @@ function renderHourly(obj) {
 
     time.textContent = hour.datetime;
     loadIcon(hour.icon, icon);
-    temp.textContent = hour.temp;
+    icon.height = "60";
+    icon.width = "60";
+    temp.textContent = `${hour.temp}°C`;
 
     hourDiv.append(time, icon, temp);
     hourly.append(hourDiv);
