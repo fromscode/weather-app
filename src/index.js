@@ -3,6 +3,7 @@ import "./styles/variables.css";
 import "./styles/styles.css";
 import "./styles/mainWeather.css";
 import "./styles/sideWeather.css";
+import "./styles/address.css";
 
 import getWeatherJson from "./styles/getWeather";
 import processJson from "./processJson";
@@ -18,6 +19,7 @@ async function renderWeather(city) {
 
   renderMainWeather(obj);
   renderSideWeather(obj);
+  renderAddress(obj);
 }
 
 function renderMainWeather(obj) {
@@ -52,4 +54,17 @@ function renderSideWeather(obj) {
 
   const uv = sideWeather.querySelector(".uv-index");
   uv.textContent = obj.days[0].uvindex;
+}
+
+function renderAddress(obj) {
+  const address = document.querySelector(".address");
+
+  const resolvedAddress = address.querySelector(".resolved-address");
+  resolvedAddress.textContent = obj.resolvedAddress;
+
+  const lat = address.querySelector(".lat");
+  lat.textContent = obj.latitude;
+
+  const long = address.querySelector(".long");
+  long.textContent = obj.longitude;
 }

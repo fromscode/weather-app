@@ -1,0 +1,11 @@
+.address {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coord {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

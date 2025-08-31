@@ -1,4 +1,6 @@
 .side-weather {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
 }
