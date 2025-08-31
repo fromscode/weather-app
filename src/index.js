@@ -38,20 +38,23 @@ async function loadIcon(iconName, imgElement) {
 
 function renderMainWeather(obj) {
   const mainWeather = document.querySelector(".main-weather");
-  const temp = mainWeather.querySelector(".temp");
-  temp.textContent = `${obj.days[0].conditions} ${obj.days[0].temp}°C`;
+  const condition = mainWeather.querySelector(".condition");
+  condition.textContent = obj.days[0].conditions.split(", ")[0];
 
-  const max = mainWeather.querySelector(".max");
+  const tempDeg = mainWeather.querySelector(".temp .degrees");
+  tempDeg.textContent = `${obj.days[0].temp}°C`;
+
+  const max = mainWeather.querySelector(".max .degrees");
   max.textContent = `${obj.days[0].tempmax}°C`;
 
-  const min = mainWeather.querySelector(".min");
+  const min = mainWeather.querySelector(".min .degrees");
   min.textContent = `${obj.days[0].tempmin}°C`;
 
   const icon = mainWeather.querySelector("img");
   loadIcon(obj.days[0].icon, icon);
   icon.height = "200";
 
-  const feelsLike = mainWeather.querySelector(".feels-like");
+  const feelsLike = mainWeather.querySelector(".feels-like .degrees");
   feelsLike.textContent = `${obj.days[0].feelslike}°C`;
 }
 

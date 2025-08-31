@@ -1,10 +1,12 @@
 .main-weather {
   display: grid;
-  grid-template-rows: repeat(4, 80px);
+  grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 1fr 1fr;
 
   border: 1px solid var(--border);
   border-radius: 10px;
+  align-self: stretch;
+  justify-self: self-end;
 }
 
 .main-weather .temp {
@@ -12,6 +14,10 @@
   text-align: center;
   border-bottom: 1px solid var(--border);
   font-size: 3.5rem;
+
+  display: flex;
+  justify-content: space-around;
+  align-self: flex-end;
 }
 
 .max,
@@ -25,6 +31,27 @@
   padding-right: 10px;
 
   font-size: 2rem;
+
+  display: grid;
+  justify-content: stretch;
+  align-items: stretch;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.max .degrees,
+.min .degrees,
+.feels-like .degrees {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+.max .text,
+.min .text,
+.feels-like .text {
+  justify-self: left;
+  font-size: 1.5rem;
+  padding-left: 10px;
 }
 
 .main-weather .icon-holder {
@@ -47,9 +74,17 @@
 .feels-like {
   grid-column: 1 / 2;
   text-align: right;
-  align-self: center;
+  align-self: flex-end;
   color: rgba(255, 255, 255, 0.5);
   padding-right: 10px;
 
   font-size: 2rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.feels-like .text {
+  grid-row: 1 / 3;
 }
