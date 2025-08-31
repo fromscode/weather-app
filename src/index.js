@@ -17,11 +17,24 @@ processForm(renderWeather);
 
 document.onload(document.querySelector("button").click());
 
+function showWhileFetching(displayMessage) {
+  const textList = document.querySelectorAll(
+    ".degrees, .val, .condition, .resolved-address, .lat, .long, .hourly, .ten-days",
+  );
+  textList.forEach((text) => {
+    text.textContent = displayMessage;
+  });
+}
+
 async function renderWeather(city) {
+  showWhileFetching("loading...");
   const obj = await processJson(getWeatherJson(city));
   console.log(obj);
 
-  if (!obj) return;
+  if (!obj) {
+    showWhileFetching("Error");
+    return;
+  }
 
   renderMainWeather(obj);
   renderSideWeather(obj);
