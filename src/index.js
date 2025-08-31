@@ -11,8 +11,6 @@ import getWeatherJson from "./styles/getWeather";
 import processJson from "./processJson";
 import processForm from "./processForm";
 
-console.log("test");
-
 processForm(renderWeather);
 
 async function renderWeather(city) {
@@ -28,6 +26,15 @@ async function renderWeather(city) {
   renderTenDays(obj);
 }
 
+async function loadIcon(iconName, imgElement) {
+  try {
+    const module = await import(`./assets/icons/${iconName}.svg`);
+    imgElement.src = module.default;
+  } catch (err) {
+    console.log(`Icon ${iconName} could not be loaded. Error: ${err}`);
+  }
+}
+
 function renderMainWeather(obj) {
   const mainWeather = document.querySelector(".main-weather");
   const temp = mainWeather.querySelector(".temp");
@@ -40,7 +47,7 @@ function renderMainWeather(obj) {
   min.textContent = obj.days[0].tempmin;
 
   const icon = mainWeather.querySelector(".icon");
-  icon.textContent = obj.days[0].icon;
+  loadIcon(obj.days[0].icon, icon);
 
   const feelsLike = mainWeather.querySelector(".feels-like");
   feelsLike.textContent = obj.days[0].feelslike;
@@ -87,14 +94,14 @@ function renderHourly(obj) {
     const time = document.createElement("div");
     time.classList.add("time");
 
-    const icon = document.createElement("div");
+    const icon = document.createElement("img");
     icon.classList.add("icon");
 
     const temp = document.createElement("div");
     temp.classList.add("temp");
 
     time.textContent = hour.datetime;
-    icon.textContent = hour.icon;
+    loadIcon(hour.icon, icon);
     temp.textContent = hour.temp;
 
     hourDiv.append(time, icon, temp);
@@ -114,14 +121,14 @@ function renderTenDays(obj) {
     const date = document.createElement("div");
     date.classList.add("date");
 
-    const icon = document.createElement("div");
+    const icon = document.createElement("img");
     icon.classList.add("icon");
 
     const temp = document.createElement("div");
     temp.classList.add("temp");
 
     date.textContent = day.datetime;
-    icon.textContent = day.icon;
+    loadIcon(day.icon, icon);
     temp.textContent = day.temp;
 
     dayDiv.append(date, icon, temp);
