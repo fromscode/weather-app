@@ -81,10 +81,10 @@ function renderAddress(obj) {
   resolvedAddress.textContent = obj.resolvedAddress;
 
   const lat = address.querySelector(".lat");
-  lat.textContent = obj.latitude;
+  lat.textContent = `(${obj.latitude},`;
 
   const long = address.querySelector(".long");
-  long.textContent = obj.longitude;
+  long.textContent = `${obj.longitude})`;
 }
 
 function renderHourly(obj) {
