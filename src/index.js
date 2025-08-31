@@ -4,6 +4,7 @@ import "./styles/styles.css";
 import "./styles/mainWeather.css";
 import "./styles/sideWeather.css";
 import "./styles/address.css";
+import "./styles/hourly.css";
 
 import getWeatherJson from "./styles/getWeather";
 import processJson from "./processJson";
@@ -20,6 +21,7 @@ async function renderWeather(city) {
   renderMainWeather(obj);
   renderSideWeather(obj);
   renderAddress(obj);
+  renderHourly(obj);
 }
 
 function renderMainWeather(obj) {
@@ -67,4 +69,30 @@ function renderAddress(obj) {
 
   const long = address.querySelector(".long");
   long.textContent = obj.longitude;
+}
+
+function renderHourly(obj) {
+  const hourly = document.querySelector(".hourly");
+
+  for (let i = 0; i < obj.days[0].hours.length; i += 2) {
+    const hour = obj.days[0].hours[i];
+    const hourDiv = document.createElement("div");
+    hourDiv.classList = "hour-div";
+
+    const time = document.createElement("div");
+    time.classList.add("time");
+
+    const icon = document.createElement("div");
+    icon.classList.add("icon");
+
+    const temp = document.createElement("div");
+    temp.classList.add("temp");
+
+    time.textContent = hour.datetime;
+    icon.textContent = hour.icon;
+    temp.textContent = hour.temp;
+
+    hourDiv.append(time, icon, temp);
+    hourly.append(hourDiv);
+  }
 }

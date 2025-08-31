@@ -1,0 +1,9 @@
+.hourly {
+  display: flex;
+  gap: 10px;
+}
+
+.hourly .hour-div {
+  display: flex;
+  flex-direction: column;
+}
