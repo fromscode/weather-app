@@ -11,6 +11,8 @@ import getWeatherJson from "./styles/getWeather";
 import processJson from "./processJson";
 import processForm from "./processForm";
 
+import { format } from "date-fns";
+
 processForm(renderWeather);
 
 async function renderWeather(city) {
@@ -134,9 +136,11 @@ function renderTenDays(obj) {
     const temp = document.createElement("div");
     temp.classList.add("temp");
 
-    date.textContent = day.datetime;
+    date.textContent = format(day.datetime, "MMM do");
     loadIcon(day.icon, icon);
-    temp.textContent = day.temp;
+    icon.height = "60";
+    icon.width = "60";
+    temp.textContent = `${day.temp}°C`;
 
     dayDiv.append(date, icon, temp);
     tenDays.append(dayDiv);
