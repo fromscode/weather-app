@@ -5,6 +5,7 @@ import "./styles/mainWeather.css";
 import "./styles/sideWeather.css";
 import "./styles/address.css";
 import "./styles/hourly.css";
+import "./styles/tenDays.css";
 
 import getWeatherJson from "./styles/getWeather";
 import processJson from "./processJson";
@@ -22,6 +23,7 @@ async function renderWeather(city) {
   renderSideWeather(obj);
   renderAddress(obj);
   renderHourly(obj);
+  renderTenDays(obj);
 }
 
 function renderMainWeather(obj) {
@@ -94,5 +96,31 @@ function renderHourly(obj) {
 
     hourDiv.append(time, icon, temp);
     hourly.append(hourDiv);
+  }
+}
+
+function renderTenDays(obj) {
+  const tenDays = document.querySelector(".ten-days");
+
+  for (let i = 1; i <= 10; ++i) {
+    const day = obj.days[i];
+    const dayDiv = document.createElement("div");
+    dayDiv.classList = "day-div";
+
+    const date = document.createElement("div");
+    date.classList.add("date");
+
+    const icon = document.createElement("div");
+    icon.classList.add("icon");
+
+    const temp = document.createElement("div");
+    temp.classList.add("temp");
+
+    date.textContent = day.datetime;
+    icon.textContent = day.icon;
+    temp.textContent = day.temp;
+
+    dayDiv.append(date, icon, temp);
+    tenDays.append(dayDiv);
   }
 }

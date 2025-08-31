@@ -1,0 +1,11 @@
+.ten-days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.day-div {
+  display: flex;
+  flex-direction: column;
+}
