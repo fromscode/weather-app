@@ -107,7 +107,13 @@ function renderHourly(obj) {
     const temp = document.createElement("div");
     temp.classList.add("temp");
 
-    time.textContent = hour.datetime;
+    let actualTime = +hour.datetime.split(":")[0];
+    let den = "AM";
+    if (actualTime > 12) {
+      actualTime -= 12;
+      den = "PM";
+    }
+    time.textContent = `${actualTime}:00 ${den}`;
     loadIcon(hour.icon, icon);
     icon.height = "60";
     icon.width = "60";
