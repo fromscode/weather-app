@@ -19,6 +19,8 @@ async function renderWeather(city) {
   const obj = await processJson(getWeatherJson(city));
   console.log(obj);
 
+  if (!obj) return;
+
   renderMainWeather(obj);
   renderSideWeather(obj);
   renderAddress(obj);
@@ -75,6 +77,7 @@ function renderAddress(obj) {
 
 function renderHourly(obj) {
   const hourly = document.querySelector(".hourly");
+  hourly.textContent = "";
 
   for (let i = 0; i < obj.days[0].hours.length; i += 2) {
     const hour = obj.days[0].hours[i];
@@ -101,6 +104,7 @@ function renderHourly(obj) {
 
 function renderTenDays(obj) {
   const tenDays = document.querySelector(".ten-days");
+  tenDays.textContent = "";
 
   for (let i = 1; i <= 10; ++i) {
     const day = obj.days[i];
