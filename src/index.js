@@ -30,6 +30,7 @@ async function loadIcon(iconName, imgElement) {
   try {
     const module = await import(`./assets/icons/${iconName}.svg`);
     imgElement.src = module.default;
+    imgElement.alt = iconName;
   } catch (err) {
     console.log(`Icon ${iconName} could not be loaded. Error: ${err}`);
   }
@@ -38,7 +39,7 @@ async function loadIcon(iconName, imgElement) {
 function renderMainWeather(obj) {
   const mainWeather = document.querySelector(".main-weather");
   const temp = mainWeather.querySelector(".temp");
-  temp.textContent = obj.days[0].temp;
+  temp.textContent = `${obj.days[0].conditions} ${obj.days[0].temp}°C`;
 
   const max = mainWeather.querySelector(".max");
   max.textContent = obj.days[0].tempmax;
@@ -46,7 +47,7 @@ function renderMainWeather(obj) {
   const min = mainWeather.querySelector(".min");
   min.textContent = obj.days[0].tempmin;
 
-  const icon = mainWeather.querySelector(".icon");
+  const icon = mainWeather.querySelector("img");
   loadIcon(obj.days[0].icon, icon);
 
   const feelsLike = mainWeather.querySelector(".feels-like");

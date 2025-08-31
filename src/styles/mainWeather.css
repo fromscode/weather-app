@@ -1,10 +1,17 @@
 .main-weather {
   display: grid;
-  grid-template-rows: 3fr 2fr 2fr 2fr;
-  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 2fr 2fr 2fr 2fr;
+  grid-template-columns: 1fr 1fr;
 
   justify-items: center;
   align-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  font-size: 3rem;
+
+  align-self: stretch;
+  /* height: 350px; */
 }
 
 .temp {
@@ -16,9 +23,20 @@
   grid-column: 1 / 2;
 }
 
-.icon {
+.main-weather .icon-holder {
   grid-column: 2 / 3;
   grid-row: 2 / 5;
+
+  /* align-items: center; */
+
+  /* display: grid; */
+  /* grid-template-rows: 2fr 8fr; */
+  /* justify-items: center; */
+  margin-right: 10px;
+}
+
+.main-weather img {
+  height: 200px;
 }
 
 .feels-like {

@@ -2,6 +2,8 @@
   --dark-purple: #150b21;
   --bright-pink: #ff4f79;
   --peach-yellow: #ffb49a;
+  --titanium: #cfd0d4;
+  --rich-green: #4c6663;
 
-  --gradient: linear-gradient(var(--dark-purple), #000);
+  --gradient: linear-gradient(#000, var(--rich-green));
 }
