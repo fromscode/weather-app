@@ -15,6 +15,8 @@ import { format } from "date-fns";
 
 processForm(renderWeather);
 
+document.onload(document.querySelector("button").click());
+
 async function renderWeather(city) {
   const obj = await processJson(getWeatherJson(city));
   console.log(obj);
