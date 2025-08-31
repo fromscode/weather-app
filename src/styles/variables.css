@@ -4,6 +4,7 @@
   --peach-yellow: #ffb49a;
   --titanium: #cfd0d4;
   --rich-green: #4c6663;
+  --border: rgba(255, 255, 255, 0.5);
 
   --gradient: linear-gradient(#000, var(--rich-green));
 }

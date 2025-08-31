@@ -42,16 +42,17 @@ function renderMainWeather(obj) {
   temp.textContent = `${obj.days[0].conditions} ${obj.days[0].temp}°C`;
 
   const max = mainWeather.querySelector(".max");
-  max.textContent = obj.days[0].tempmax;
+  max.textContent = `${obj.days[0].tempmax}°C`;
 
   const min = mainWeather.querySelector(".min");
-  min.textContent = obj.days[0].tempmin;
+  min.textContent = `${obj.days[0].tempmin}°C`;
 
   const icon = mainWeather.querySelector("img");
   loadIcon(obj.days[0].icon, icon);
+  icon.height = "200";
 
   const feelsLike = mainWeather.querySelector(".feels-like");
-  feelsLike.textContent = obj.days[0].feelslike;
+  feelsLike.textContent = `${obj.days[0].feelslike}°C`;
 }
 
 function renderSideWeather(obj) {

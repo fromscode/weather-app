@@ -1,44 +1,55 @@
 .main-weather {
   display: grid;
-  grid-template-rows: 2fr 2fr 2fr 2fr;
+  grid-template-rows: repeat(4, 80px);
   grid-template-columns: 1fr 1fr;
 
-  justify-items: center;
-  align-items: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--border);
   border-radius: 10px;
-  font-size: 3rem;
-
-  align-self: stretch;
-  /* height: 350px; */
 }
 
-.temp {
+.main-weather .temp {
   grid-column: 1 / 3;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  font-size: 3.5rem;
 }
 
 .max,
 .min {
   grid-column: 1 / 2;
+  justify-self: stretch;
+  align-self: center;
+  text-align: right;
+  border-bottom: 1px solid var(--border);
+  color: rgba(255, 255, 255, 0.5);
+  padding-right: 10px;
+
+  font-size: 2rem;
 }
 
 .main-weather .icon-holder {
   grid-column: 2 / 3;
   grid-row: 2 / 5;
+  padding: 0px 20px;
+  border-left: 1px solid var(--border);
 
-  /* align-items: center; */
-
-  /* display: grid; */
-  /* grid-template-rows: 2fr 8fr; */
-  /* justify-items: center; */
-  margin-right: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-weather img {
-  height: 200px;
+  align-self: center;
 }
 
 .feels-like {
   grid-column: 1 / 2;
+  text-align: right;
+  align-self: center;
+  color: rgba(255, 255, 255, 0.5);
+  padding-right: 10px;
+
+  font-size: 2rem;
 }
