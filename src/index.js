@@ -61,16 +61,16 @@ function renderMainWeather(obj) {
 function renderSideWeather(obj) {
   const sideWeather = document.querySelector(".side-weather");
 
-  const humidity = sideWeather.querySelector(".humidity");
+  const humidity = sideWeather.querySelector(".humidity .val");
   humidity.textContent = obj.days[0].humidity;
 
-  const precipitation = sideWeather.querySelector(".precipitation");
-  precipitation.textContent = obj.days[0].precipprob;
+  const precipitation = sideWeather.querySelector(".precipitation .val");
+  precipitation.textContent = `${obj.days[0].precipprob}%`;
 
-  const windSpeed = sideWeather.querySelector(".windspeed");
+  const windSpeed = sideWeather.querySelector(".windspeed .val");
   windSpeed.textContent = obj.days[0].windspeed;
 
-  const uv = sideWeather.querySelector(".uv-index");
+  const uv = sideWeather.querySelector(".uv-index .val");
   uv.textContent = obj.days[0].uvindex;
 }
 
